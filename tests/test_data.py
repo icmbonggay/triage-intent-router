@@ -1,5 +1,5 @@
 import pytest
-from src.data import load_data
+from data import load_data
 
 COLUMN_NAMES = ["text", "label", "label_text"]
 
@@ -22,3 +22,5 @@ def test_columns_are_exactly_text_label_labeltext_only(split):
 def test_bad_input_raises_value_error():
     with pytest.raises(ValueError):
         load_data("hello")
+
+

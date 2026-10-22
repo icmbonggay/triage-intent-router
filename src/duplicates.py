@@ -2,7 +2,7 @@ from collections import defaultdict
 
 import pandas as pd
 
-from src.normalize import normalize_data
+from normalize import normalize_data
 
 
 def find_duplicate(df: pd.DataFrame) -> dict[str, list[dict]]:

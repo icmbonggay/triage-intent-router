@@ -1,4 +1,4 @@
-from src.duplicates import find_duplicate
+from duplicates import find_duplicate
 import pandas as pd
 
 

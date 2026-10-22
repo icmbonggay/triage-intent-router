@@ -1,6 +1,6 @@
 import pytest
 
-from src.normalize import normalize_data
+from normalize import normalize_data
 
 
 @pytest.mark.parametrize(
