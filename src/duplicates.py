@@ -34,3 +34,28 @@ def find_duplicate(df: pd.DataFrame) -> dict[str, list[dict]]:
         })
 
     return {key: rows for key, rows in groups.items() if len(rows) > 1}
+
+
+def assign_groups(df: pd.DataFrame) -> list:
+    """Label each row with its normalized text, so duplicates share a label.
+
+    Every row gets a label, including rows with no duplicate. Two rows
+    get the same label exactly when their text is identical after
+    `normalize_data`.
+
+    Args:
+        df: DataFrame with a "text" column holding the messages.
+
+    Returns:
+        A list with one label per row of `df`, in the same order as the
+        rows. Each label is that row's normalized text.
+    """
+    groups = []
+
+    for row in df.itertuples():
+        key = normalize_data(row.text)
+        groups.append(key)
+    
+    
+    return groups
+

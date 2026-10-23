@@ -1,4 +1,4 @@
-from duplicates import find_duplicate
+from duplicates import find_duplicate, assign_groups
 import pandas as pd
 
 
@@ -74,3 +74,12 @@ def test_group_with_three_members_keeps_all_of_them():
             {"index": 3, "split": "test", "text": "HOW DO I TOP UP!!"},
         ]
     }
+
+def test_each_row_label_is_returned():
+    df = pd.DataFrame({
+        "text":  ["How do I top up?", "my card is lost", "how do i top-up"]
+    })
+
+    result = assign_groups(df)
+
+    assert result == ["how do i top up", "my card is lost", "how do i top up"]
